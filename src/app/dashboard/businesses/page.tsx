@@ -74,50 +74,50 @@ export default function MyBusinessesPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {businesses.map(business => (
             <div key={business.id} className="card">
-              <div className="card-body" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                {/* Logo */}
-                <div style={{
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '12px',
-                  background: 'var(--color-primary-50)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.5rem',
-                  fontWeight: '800',
-                  color: 'var(--color-primary)',
-                  overflow: 'hidden',
-                  flexShrink: 0,
-                  border: '1px solid var(--color-border)'
-                }}>
-                  {business.logo_url ? (
-                    <img src={business.logo_url} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : (
-                    <Store size={24} />
-                  )}
-                </div>
-
-                {/* Info */}
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '700', fontSize: 'var(--font-size-base)', color: 'var(--color-gray-900)' }}>
-                      {business.name}
-                    </span>
-                    {business.is_verified && <span className="badge badge-success">✓ Verified</span>}
-                    <span className="badge badge-primary">{business.category.replace('_', ' ')}</span>
+              <div className="card-body business-manage-card">
+                {/* Top / Left Header (Logo + Info) */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, width: '100%' }}>
+                  <div style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '12px',
+                    background: 'var(--color-primary-50)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    fontWeight: '800',
+                    color: 'var(--color-primary)',
+                    overflow: 'hidden',
+                    flexShrink: 0,
+                    border: '1px solid var(--color-border)'
+                  }}>
+                    {business.logo_url ? (
+                      <img src={business.logo_url} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <Store size={24} />
+                    )}
                   </div>
-                  <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-gray-500)' }}>
-                    {business.description?.slice(0, 100) || 'No description'}
-                    {(business.description?.length ?? 0) > 100 ? '...' : ''}
-                  </p>
-                  <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-gray-400)', marginTop: '4px' }}>
-                    Registered {format(new Date(business.created_at), 'MMM d, yyyy')}
-                  </p>
+
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
+                      <span style={{ fontWeight: '700', fontSize: 'var(--font-size-base)', color: 'var(--color-gray-900)', wordBreak: 'break-word' }}>
+                        {business.name}
+                      </span>
+                      {business.is_verified && <span className="badge badge-success">✓ Verified</span>}
+                      <span className="badge badge-primary">{business.category.replace('_', ' ')}</span>
+                    </div>
+                    <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-gray-500)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {business.description || 'No description'}
+                    </p>
+                    <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--color-gray-400)', marginTop: '4px' }}>
+                      Registered {format(new Date(business.created_at), 'MMM d, yyyy')}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Actions */}
-                <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+                <div className="business-manage-actions">
                   <Link
                     href={`/businesses/${business.slug}`}
                     target="_blank"

@@ -390,7 +390,7 @@ export default function BusinessProfilePage() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <div className="form-row-2">
                 <div className="form-group">
                   <label className="form-label">Phone Number *</label>
                   <input
@@ -451,7 +451,7 @@ export default function BusinessProfilePage() {
 
       {/* Business Cover Banner */}
       <div style={{
-        height: '260px',
+        height: 'clamp(150px, 28vw, 260px)',
         background: 'linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100))',
         overflow: 'hidden',
         position: 'relative'
@@ -463,7 +463,7 @@ export default function BusinessProfilePage() {
 
       <div className="container" style={{ paddingTop: '24px', paddingBottom: '100px' }}>
         {/* Profile Header */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '20px', marginBottom: '32px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: '20px', marginBottom: '32px', flexWrap: 'wrap' }}>
           <div style={{
             width: '90px',
             height: '90px',
@@ -485,7 +485,7 @@ export default function BusinessProfilePage() {
               <img src={business.logo_url} alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             ) : business.name.charAt(0)}
           </div>
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: '220px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
               <h1 style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '800', color: 'var(--color-gray-900)' }}>
                 {business.name}
@@ -503,7 +503,7 @@ export default function BusinessProfilePage() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '32px', alignItems: 'start' }}>
+        <div className="profile-layout-grid">
           {/* Main Showcase */}
           <div>
             {/* Nav Tabs */}
@@ -753,20 +753,22 @@ export default function BusinessProfilePage() {
       {cart.length > 0 && (
         <div style={{
           position: 'fixed',
-          bottom: '24px',
+          bottom: 'calc(16px + env(safe-area-inset-bottom))',
           left: '50%',
           transform: 'translateX(-50%)',
           background: 'var(--color-gray-900)',
           color: 'white',
           borderRadius: '40px',
-          padding: '12px 24px',
+          padding: '10px 18px',
           display: 'flex',
           alignItems: 'center',
-          gap: '20px',
+          justifyContent: 'space-between',
+          gap: '12px',
           boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
           zIndex: 2000,
           cursor: 'pointer',
-          maxWidth: '90vw'
+          width: 'calc(100% - 32px)',
+          maxWidth: '440px'
         }}
         onClick={() => setShowCheckout(true)}
         >

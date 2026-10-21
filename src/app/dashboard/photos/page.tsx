@@ -334,7 +334,7 @@ export default function PhotosPage() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-row-2">
                 <div className="form-group">
                   <label className="form-label">Price (USD) *</label>
                   <input
@@ -379,7 +379,7 @@ export default function PhotosPage() {
           <h1 className="page-title">Photos & Product Selling</h1>
           <p className="page-subtitle">Upload media showcase or sell items with name, price, and stock</p>
         </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <button
             onClick={() => openSellModalWithPhoto()}
             className="btn btn-secondary"

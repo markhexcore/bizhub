@@ -78,7 +78,7 @@ export default function BusinessesPage() {
         padding: '40px 0 24px'
       }}>
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
+          <div className="page-header" style={{ marginBottom: '24px' }}>
             <div>
               <h1 className="page-title">Business Hub</h1>
               <p className="page-subtitle">
@@ -93,7 +93,7 @@ export default function BusinessesPage() {
 
           {/* Search + Filters */}
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <div className="search-bar">
+            <div className="search-bar" style={{ flex: '1 1 280px', maxWidth: '100%' }}>
               <div className="search-bar-icon">
                 <Search size={16} />
               </div>

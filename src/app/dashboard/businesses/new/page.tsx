@@ -121,7 +121,7 @@ export default function NewBusinessPage() {
       )}
 
       <form onSubmit={handleSubmit}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'start' }}>
+        <div className="two-col-grid-equal">
 
           {/* Left Column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -190,7 +190,7 @@ export default function NewBusinessPage() {
                     />
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div className="form-row-2">
                     <div className="form-group">
                       <label className="form-label">City</label>
                       <input

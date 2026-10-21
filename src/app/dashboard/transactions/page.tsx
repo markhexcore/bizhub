@@ -123,7 +123,7 @@ export default function TransactionsPage() {
                 </select>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-row-2">
                 <div className="form-group">
                   <label className="form-label">Type</label>
                   <select className="form-select" value={form.type} onChange={e => setForm(p => ({
@@ -146,7 +146,7 @@ export default function TransactionsPage() {
                 <input className="form-input" type="text" placeholder="e.g. Monthly rent payment" value={form.description} onChange={e => setForm(p => ({ ...p, description: e.target.value }))} required />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-row-2">
                 <div className="form-group">
                   <label className="form-label">Category</label>
                   <select className="form-select" value={form.category} onChange={e => setForm(p => ({ ...p, category: e.target.value }))}>

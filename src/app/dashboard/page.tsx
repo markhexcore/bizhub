@@ -144,7 +144,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Chart + Recent Transactions */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '24px', marginBottom: '32px' }}>
+      <div className="dashboard-overview-grid">
         {/* Chart */}
         <div className="card">
           <div className="card-body">

@@ -286,7 +286,7 @@ export default function ProductsPage() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div className="form-row-2">
                 <div className="form-group">
                   <label className="form-label">Price (USD) *</label>
                   <input
@@ -402,7 +402,7 @@ export default function ProductsPage() {
               </div>
             </div></div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
               {filteredProducts.map(product => (
                 <div key={product.id} className="card" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                   {/* Product Image */}

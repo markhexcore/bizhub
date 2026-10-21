@@ -18,6 +18,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="dashboard-layout">
+      {/* Desktop Sidebar */}
       <aside className="sidebar">
         {navItems.map(item => (
           <Link
@@ -38,9 +39,45 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
       </aside>
 
+      {/* Main Content */}
       <div className="dashboard-content">
+        {/* Mobile Horizontal Tabs Header */}
+        <div className="mobile-dash-tabs">
+          {navItems.map(item => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`mobile-dash-tab ${pathname === item.href ? 'active' : ''}`}
+            >
+              {item.icon}
+              <span>{item.label.split(' ')[0]}</span>
+            </Link>
+          ))}
+        </div>
+
         {children}
       </div>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <nav className="mobile-bottom-nav" aria-label="Mobile Dashboard Navigation">
+        <div className="mobile-bottom-nav-inner">
+          {navItems.map(item => {
+            const active = pathname === item.href
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`mobile-nav-item ${active ? 'active' : ''}`}
+              >
+                <div className="mobile-nav-icon">{item.icon}</div>
+                <span className="mobile-nav-label">
+                  {item.label === 'Products & Store' ? 'Store' : item.label === 'My Businesses' ? 'Businesses' : item.label}
+                </span>
+              </Link>
+            )
+          })}
+        </div>
+      </nav>
     </div>
   )
 }
